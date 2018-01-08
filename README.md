@@ -5,8 +5,6 @@ The goals / steps of this project are the following:
 
 ### 1. Description of the pipeline - 
 
-![alt text](./test_image_output/output5.png "Lane detection pipeline")
-
 My pipeline consists of the following steps - 
 
 1. Convert the image to grayscale
@@ -20,6 +18,10 @@ My pipeline consists of the following steps -
 7. Sort lines into left or right lane lines and filter out the lines that do not look like lane lines based on its slope and intercept values, to select only the liness that are most potentially lane lines
 8. All the potential left lane lines are averaged and all the potential right lane lines are averaged to calculate the best prediction of the respective lane lines
 9. To create the final output image the original image is superimposed with the calculated lane line features
+
+Following is the pictorial description of the pipeline working on the project video. Note step 1 output is missing, which would be the grayscale image, step 2 depicted is the blurred gray image.
+![alt text](./test_image_output/output5.png "Lane detection pipeline")
+
 
 ### 2. Identify potential shortcomings with your current pipeline
 
@@ -35,3 +37,9 @@ Here are some of the shortcomings of this approach -
 2. Another potential improvement could be to filter the lane position over multiple image frames as we do not expect the lane lines to change rapidly from one image to another in the video. 
 
 3. Also, for images where we do not detect any potential lines for either left or right line, currently no line is drawn in the output image. We can update the pipeline to use the last known value for that respective lane line.
+
+For the following images collected from the challenge video, the selection of lane lines from all possible lines works well most of the times. For example -
+![alt text](./test_image_output/from_videos/output30.png "Lane detection pipeline")
+
+However, it can use more accurate lane line selection from all possible lines and from the above mentioned improvements for situations like - 
+![alt text](./test_image_output/from_videos/output24.png "Lane detection pipeline")
